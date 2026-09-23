@@ -1,0 +1,31 @@
+{
+  "info": {
+    "name": "Taller 2 - Verificación de JSONPlaceholder",
+    "description": "Paso 3. Consulta real del usuario 1 y validación de su correo. Se puede importar en Postman o ejecutar con Newman.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Consultar usuario 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://jsonplaceholder.typicode.com/users/1"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });",
+              "pm.test('El usuario tiene ID 1', function () { pm.expect(pm.response.json().id).to.eql(1); });",
+              "pm.test('Existe el email esperado', function () { pm.expect(pm.response.json().email).to.eql('Sincere@april.biz'); });",
+              "console.log('Email recibido:', pm.response.json().email);"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

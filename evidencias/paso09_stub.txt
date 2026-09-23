@@ -1,0 +1,20 @@
+Fecha UTC: 2026-09-23T16:18:59.546905+00:00
+Comando: python -m pytest test_unit_with_stub.py -v --color=no
+SIMULATE_USER_API_FAILURE=1
+Código de salida: 0; esperado: 0
+
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-8.4.2, pluggy-1.6.0 -- /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software
+configfile: pytest.ini
+collecting ... collected 6 items
+
+test_unit_with_stub.py::test_create_order_with_stub PASSED               [ 16%]
+test_unit_with_stub.py::test_invalid_amount_has_no_side_effects[0] PASSED [ 33%]
+test_unit_with_stub.py::test_invalid_amount_has_no_side_effects[-1] PASSED [ 50%]
+test_unit_with_stub.py::test_invalid_amount_has_no_side_effects[-200] PASSED [ 66%]
+test_unit_with_stub.py::test_repository_failure_does_not_save_or_notify PASSED [ 83%]
+test_unit_with_stub.py::test_commit_failure_does_not_notify PASSED       [100%]
+
+============================== 6 passed in 0.02s ===============================

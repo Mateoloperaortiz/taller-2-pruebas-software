@@ -1,0 +1,7 @@
+Fecha UTC: 2026-09-23T16:24:36.085885+00:00
+USER_REPOSITORY=real
+SIMULATE_USER_API_FAILURE=1
+Formulario: user_id=1, amount=50
+Resultado visible: User service unavailable
+Filas tras la falla: [[1, "Sincere@april.biz", 100, "CREATED"]]
+No se agregó una nueva orden. La orden anterior permanece.

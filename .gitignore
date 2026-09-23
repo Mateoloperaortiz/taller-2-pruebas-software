@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.db
+*.db-journal
+.DS_Store
+.env
+tmp/
+evidencias/postman-run.json

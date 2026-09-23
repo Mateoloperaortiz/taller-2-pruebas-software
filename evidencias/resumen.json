@@ -1,0 +1,42 @@
+{
+  "executed_at_utc": "2026-09-23T16:18:59.546905+00:00",
+  "python": "3.11.16",
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "runs": [
+    {
+      "name": "paso06_unit_real",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "paso06_integration_real",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "paso07_unit_falla",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    {
+      "name": "paso07_integration_falla",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    },
+    {
+      "name": "paso09_stub",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "paso10_fake",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "suite_sin_red",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    }
+  ]
+}

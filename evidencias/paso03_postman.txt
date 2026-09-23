@@ -1,0 +1,38 @@
+npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated uuid@3.4.0: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated @faker-js/faker@5.5.3: Please update to a newer version.
+(node:51169) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+newman
+
+Taller 2 - Verificación de JSONPlaceholder
+
+→ Consultar usuario 1
+  GET https://jsonplaceholder.typicode.com/users/1 [200 OK, 1.65kB, 3.4s]
+  ✓  HTTP 200
+  ✓  El usuario tiene ID 1
+  ✓  Existe el email esperado
+  ┌
+  │ 'Email recibido:', 'Sincere@april.biz'
+  └
+
+┌─────────────────────────┬──────────────────┬──────────────────┐
+│                         │         executed │           failed │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              iterations │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│                requests │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│            test-scripts │                1 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│      prerequest-scripts │                0 │                0 │
+├─────────────────────────┼──────────────────┼──────────────────┤
+│              assertions │                3 │                0 │
+├─────────────────────────┴──────────────────┴──────────────────┤
+│ total run duration: 3.5s                                      │
+├───────────────────────────────────────────────────────────────┤
+│ total data received: 509B (approx)                            │
+├───────────────────────────────────────────────────────────────┤
+│ average response time: 3.4s [min: 3.4s, max: 3.4s, s.d.: 0µs] │
+└───────────────────────────────────────────────────────────────┘

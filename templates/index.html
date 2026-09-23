@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Órdenes · Taller 2</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #f5f7fb; color: #192235; font: 16px/1.5 system-ui, sans-serif; }
+        main { max-width: 880px; margin: 48px auto; padding: 0 24px; }
+        .eyebrow { color: #52627c; font-size: 13px; font-weight: 650; letter-spacing: .1em; }
+        h1 { font-size: 34px; margin: 8px 0; }
+        h2 { font-size: 21px; margin-top: 0; }
+        .mode { color: #52627c; margin-bottom: 30px; }
+        section { background: white; border: 1px solid #dce3ed; border-radius: 12px; padding: 24px; margin: 22px 0; }
+        form { display: flex; align-items: end; gap: 16px; flex-wrap: wrap; }
+        label { display: grid; gap: 7px; flex: 1; min-width: 170px; font-weight: 600; }
+        input, button { font: inherit; padding: 10px 12px; border-radius: 6px; }
+        input { border: 1px solid #aab7ca; width: 100%; }
+        button { background: #2457cc; color: white; border: 1px solid #2457cc; cursor: pointer; }
+        .success { color: #17613f; background: #edf8f0; padding: 14px; border-radius: 6px; }
+        .error { color: #9c2531; background: #fff0f1; padding: 14px; border-radius: 6px; }
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid #e2e7ef; }
+        th { color: #52627c; font-size: 13px; }
+        .status { color: #17613f; font-size: 13px; font-weight: 650; }
+        footer { color: #64738a; font-size: 13px; }
+    </style>
+</head>
+<body>
+<main>
+    <div class="eyebrow">PRUEBAS DE SOFTWARE · TALLER 2</div>
+    <h1>Gestión de órdenes</h1>
+    <p class="mode">Usuarios: {{ 'JSONPlaceholder · API real' if mode == 'real' else 'FakeUserRepository · sin API externa' }}</p>
+    <section>
+        <h2>Crear una orden</h2>
+        <form method="post">
+            <label for="user_id">ID del usuario
+                <input id="user_id" type="number" name="user_id" min="1" step="1" required>
+            </label>
+            <label for="amount">Monto
+                <input id="amount" type="number" name="amount" min="1" step="1" required>
+            </label>
+            <button type="submit">Crear orden</button>
+        </form>
+        {% if result %}
+        <p class="success" role="status">Orden #{{ result.id }} creada para {{ result.user_email }} por {{ result.amount }}.</p>
+        {% endif %}
+        {% if error %}
+        <p class="error" role="alert">{{ error }}</p>
+        {% endif %}
+    </section>
+    <section>
+        <h2>Órdenes guardadas</h2>
+        {% if orders %}
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>ID</th><th>Usuario</th><th>Monto</th><th>Estado</th></tr></thead>
+            <tbody>
+            {% for order in orders %}
+            <tr><td>{{ order.id }}</td><td>{{ order.user_email }}</td><td>{{ order.amount }}</td><td class="status">{{ order.status }}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        {% else %}
+        <p>Aún no hay órdenes. Crea la primera con el formulario.</p>
+        {% endif %}
+    </section>
+    <footer>Persistencia local con SQLite. Los montos se registran como números enteros.</footer>
+</main>
+</body>
+</html>

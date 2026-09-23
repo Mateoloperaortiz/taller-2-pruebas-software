@@ -1,0 +1,33 @@
+Fecha UTC: 2026-09-23T16:18:59.546905+00:00
+Comando: python -m pytest -m not external -v --color=no
+SIMULATE_USER_API_FAILURE=1
+Código de salida: 0; esperado: 0
+
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-8.4.2, pluggy-1.6.0 -- /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software
+configfile: pytest.ini
+testpaths: .
+collecting ... collected 20 items / 2 deselected / 18 selected
+
+test_app.py::test_form_creates_and_displays_persisted_order PASSED       [  5%]
+test_app.py::test_form_rejects_invalid_values[data0] PASSED              [ 11%]
+test_app.py::test_form_rejects_invalid_values[data1] PASSED              [ 16%]
+test_app.py::test_form_rejects_invalid_values[data2] PASSED              [ 22%]
+test_app.py::test_form_rejects_invalid_values[data3] PASSED              [ 27%]
+test_app.py::test_form_rejects_invalid_values[data4] PASSED              [ 33%]
+test_app.py::test_form_rejects_invalid_values[data5] PASSED              [ 38%]
+test_app.py::test_app_shows_external_failure_without_saving PASSED       [ 44%]
+test_app.py::test_fake_works_even_when_real_repository_is_broken PASSED  [ 50%]
+test_app.py::test_repository_mode_must_be_explicitly_supported PASSED    [ 55%]
+test_integration_with_fake.py::test_create_order_integration_with_fake PASSED [ 61%]
+test_integration_with_fake.py::test_invalid_amount_is_not_persisted PASSED [ 66%]
+test_unit_with_stub.py::test_create_order_with_stub PASSED               [ 72%]
+test_unit_with_stub.py::test_invalid_amount_has_no_side_effects[0] PASSED [ 77%]
+test_unit_with_stub.py::test_invalid_amount_has_no_side_effects[-1] PASSED [ 83%]
+test_unit_with_stub.py::test_invalid_amount_has_no_side_effects[-200] PASSED [ 88%]
+test_unit_with_stub.py::test_repository_failure_does_not_save_or_notify PASSED [ 94%]
+test_unit_with_stub.py::test_commit_failure_does_not_notify PASSED       [100%]
+
+======================= 18 passed, 2 deselected in 0.75s =======================

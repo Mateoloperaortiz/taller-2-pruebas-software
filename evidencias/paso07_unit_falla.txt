@@ -1,0 +1,45 @@
+Fecha UTC: 2026-09-23T16:18:59.546905+00:00
+Comando: python -m pytest test_unit_real_api.py -v --color=no
+SIMULATE_USER_API_FAILURE=1
+Código de salida: 1; esperado: 1
+
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-8.4.2, pluggy-1.6.0 -- /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software
+configfile: pytest.ini
+collecting ... collected 1 item
+
+test_unit_real_api.py::test_create_order_with_real_api FAILED            [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_create_order_with_real_api ________________________
+
+db = <sqlalchemy.orm.session.Session object at 0x109656090>
+
+    def test_create_order_with_real_api(db):
+>       order = create_order(
+            1, 100, NullNotifier(), DummyLogger(), db, JsonPlaceholderUserRepository()
+        )
+
+test_unit_real_api.py:22:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+order_service.py:17: in create_order
+    email = user_repository.get_user_email(user_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <user_repository.JsonPlaceholderUserRepository object at 0x1097a7d10>
+user_id = 1
+
+    def get_user_email(self, user_id: int) -> str:
+        # Paso 7: activa la misma excepción propuesta por el enunciado.
+        # Se conserva la implementación real para reproducir ambos escenarios.
+        if os.getenv("SIMULATE_USER_API_FAILURE") == "1":
+>           raise ConnectionError("User service unavailable")
+E           ConnectionError: User service unavailable
+
+user_repository.py:11: ConnectionError
+=========================== short test summary info ============================
+FAILED test_unit_real_api.py::test_create_order_with_real_api - ConnectionErr...
+============================== 1 failed in 0.04s ===============================

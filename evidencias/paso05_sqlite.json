@@ -1,0 +1,13 @@
+{
+  "verified_at_utc": "2026-09-23T16:20:30.095727+00:00",
+  "query": "SELECT id, user_email, amount, status FROM orders",
+  "after_server_restart": true,
+  "rows": [
+    [
+      1,
+      "Sincere@april.biz",
+      100,
+      "CREATED"
+    ]
+  ]
+}

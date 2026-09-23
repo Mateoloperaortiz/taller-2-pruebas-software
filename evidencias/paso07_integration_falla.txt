@@ -1,0 +1,46 @@
+Fecha UTC: 2026-09-23T16:18:59.546905+00:00
+Comando: python -m pytest test_integration_real_api.py -v --color=no
+SIMULATE_USER_API_FAILURE=1
+Código de salida: 1; esperado: 1
+
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-8.4.2, pluggy-1.6.0 -- /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software
+configfile: pytest.ini
+collecting ... collected 1 item
+
+test_integration_real_api.py::test_create_order_integration_real_api FAILED [100%]
+
+=================================== FAILURES ===================================
+____________________ test_create_order_integration_real_api ____________________
+
+db = <sqlalchemy.orm.session.Session object at 0x107492a10>
+session_factory = sessionmaker(class_='Session', bind=Engine(sqlite:////private/var/folders/4y/n25mr9jx1h9916ldlwk5ytxm0000gn/T/pytest-of-mateo/pytest-3/test_create_order_integration_0/test_orders.db), autoflush=True, expire_on_commit=False)
+
+    def test_create_order_integration_real_api(db, session_factory):
+>       order = create_order(
+            1, 50, NullNotifier(), DummyLogger(), db, JsonPlaceholderUserRepository()
+        )
+
+test_integration_real_api.py:21:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+order_service.py:17: in create_order
+    email = user_repository.get_user_email(user_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <user_repository.JsonPlaceholderUserRepository object at 0x1074cab50>
+user_id = 1
+
+    def get_user_email(self, user_id: int) -> str:
+        # Paso 7: activa la misma excepción propuesta por el enunciado.
+        # Se conserva la implementación real para reproducir ambos escenarios.
+        if os.getenv("SIMULATE_USER_API_FAILURE") == "1":
+>           raise ConnectionError("User service unavailable")
+E           ConnectionError: User service unavailable
+
+user_repository.py:11: ConnectionError
+=========================== short test summary info ============================
+FAILED test_integration_real_api.py::test_create_order_integration_real_api
+============================== 1 failed in 0.03s ===============================

@@ -1,0 +1,16 @@
+Fecha UTC: 2026-09-23T16:18:59.546905+00:00
+Comando: python -m pytest test_integration_with_fake.py -v --color=no
+SIMULATE_USER_API_FAILURE=1
+Código de salida: 0; esperado: 0
+
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-8.4.2, pluggy-1.6.0 -- /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/mateo/Documents/ChatGPT/Taller 2 Pruebas de Software
+configfile: pytest.ini
+collecting ... collected 2 items
+
+test_integration_with_fake.py::test_create_order_integration_with_fake PASSED [ 50%]
+test_integration_with_fake.py::test_invalid_amount_is_not_persisted PASSED [100%]
+
+============================== 2 passed in 0.03s ===============================
